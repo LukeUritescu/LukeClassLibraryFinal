@@ -35,7 +35,7 @@ namespace ClassLibraryFinal
 
         public IDeliveryService DeliveryService { get; set; }
 
-        List<IProduct> Products { get; set; }
+        public List<IProduct> Products { get; set; }
 
 
         /// <summary>
@@ -46,16 +46,16 @@ namespace ClassLibraryFinal
         /// <param name="Location"></param>
         public DefaultShippingService(IDeliveryService Service,  List<IProduct> Products, IShippingLocation Location)
         {
-            this.DeliveryService = Service;
+            DeliveryService = Service;
             this.Products = Products;
-            this.ShippingLocation = Location;
+            ShippingLocation = Location;
             this.ShippingLocation.StartZipCode = 60605;
             this.ShippingLocation.DestinationZipCode = 60805;
         }
 
         public double ShippingCost()
-        {
-            return 0;
+        {            
+            return (NumRefuels * this.DeliveryService.CostPerRefuel);
         }
     }
 }

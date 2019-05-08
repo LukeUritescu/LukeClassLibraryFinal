@@ -62,6 +62,7 @@
     <Compile Include="DeliveryServices\DeliveryService.cs" />
     <Compile Include="DeliveryServices\IDeliveryService.cs" />
     <Compile Include="Products\IProduct.cs" />
+    <Compile Include="ShippingServices\EuropeanSwallowFakeShippingService.cs" />
     <Compile Include="ShippingServices\IShippingLocation.cs" />
     <Compile Include="ShippingServices\IShippingService.cs" />
     <Compile Include="Vehicles\IMotorVehicle.cs" />
