@@ -1,8 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ClassLibraryFinal;
-using ClassLibraryFinal.DeliveryServices;
-using ClassLibraryFinal.Vehicles;
+
 
 namespace UnitTestFinal
 {
@@ -65,19 +64,6 @@ namespace UnitTestFinal
             Assert.AreEqual(delivery.CostPerRefuel, costPerRefuel);
         }
 
-        [TestMethod]
-        public void DeliveryService_UnburdenedSwallowsDefaults()
-        {
-            //Arrange
-            double costPerRefuel = 50;
-            vehicle = new  EuropeanSwallow();
-            delivery = new UnburdenedSwallows(vehicle);
-            //Act
-
-            //Assert
-            Assert.IsNotNull(delivery);
-            Assert.IsNotNull(delivery.ShippingVehicle);
-            Assert.AreEqual(delivery.CostPerRefuel, costPerRefuel);
-        }
+       
     }
 }

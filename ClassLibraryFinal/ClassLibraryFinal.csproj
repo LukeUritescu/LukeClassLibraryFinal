@@ -58,15 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeliveryServices\AirExpress.cs" />
-    <Compile Include="DeliveryServices\UnburdenedSwallows.cs" />
     <Compile Include="ShippingServices\DefaultShippingService.cs" />
     <Compile Include="DeliveryServices\DeliveryService.cs" />
     <Compile Include="DeliveryServices\IDeliveryService.cs" />
     <Compile Include="Products\IProduct.cs" />
     <Compile Include="ShippingServices\IShippingLocation.cs" />
     <Compile Include="ShippingServices\IShippingService.cs" />
-    <Compile Include="ShippingServices\MigratingCoconutService.cs" />
-    <Compile Include="Vehicles\EuropeanSwallow.cs" />
     <Compile Include="Vehicles\IMotorVehicle.cs" />
     <Compile Include="Vehicles\IShippingVehicle.cs" />
     <Compile Include="Vehicles\MotorVehicle.cs" />

@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ClassLibraryFinal;
-using ClassLibraryFinal.Vehicles;
 
 namespace UnitTestFinal
 {
@@ -63,20 +62,6 @@ namespace UnitTestFinal
             Assert.AreEqual(MaxWeight, sv.MaxWeight);
             Assert.AreEqual(TopSpeed, sv.TopSpeed);
         }
-        [TestMethod]
-        public void ShippingVehicle_EuropeanSwallowDefaults()
-        {
-            //Arrange
-            sv = new EuropeanSwallow();
-            uint MaxDistance, MaxWeight, TopSpeed;
-            //Act
-            MaxDistance = 50;
-            MaxWeight = 1500;
-            TopSpeed = 350;
-            //Assert
-            Assert.AreEqual(MaxDistance, sv.MaxDistancePerRefuel);
-            Assert.AreEqual(MaxWeight, sv.MaxWeight);
-            Assert.AreEqual(TopSpeed, sv.TopSpeed);
-        }
+
     }
 }
