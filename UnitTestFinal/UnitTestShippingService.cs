@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ClassLibraryFinal;
+using ClassLibraryFinal.DeliveryServices;
+using ClassLibraryFinal.Vehicles;
 
 namespace UnitTestFinal
 {
@@ -54,6 +56,5 @@ namespace UnitTestFinal
             Assert.AreEqual(ss.NumRefuels, numRefuels);
         }
 
-        
     }
 }
