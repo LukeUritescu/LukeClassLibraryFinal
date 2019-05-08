@@ -14,7 +14,9 @@ namespace ClassLibraryFinal
 
         public ShippingSnail()
         {
-            
+            this.TopSpeed = Speed;
+            this.MaxDistancePerRefuel = 20;
+            this.MaxWeight = 1;
         }
     }
 }
