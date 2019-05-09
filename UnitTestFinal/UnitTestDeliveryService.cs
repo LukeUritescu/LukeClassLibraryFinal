@@ -67,18 +67,25 @@ namespace UnitTestFinal
         }
         
         [TestMethod]
-        public void TestShippingEuropeanSwallo()
+        public void TestMock()
         {
+            //Assign
+            EuropeanSwallowFakeShippingService defaultMock;
+
             var mockDeliveryService = new Mock<IDeliveryService>();
             var mockProduct = new Mock<IProduct>();
+            var mockListProduct = new Mock<List<IProduct>>();
             var mockShippingLocation = new Mock<IShippingLocation>();
 
-            //mockShippingVehicle.Setup(sv => sv.MaxDistancePerRefuel).Equals(200);
-            //mockShippingVehicle.Setup(sv => sv.MaxWeight).Equals(1000);
-            //mockShippingVehicle.Setup(sv => sv.TopSpeed).Equals(65);
+            var mockShippingVehicle = new Mock<IShippingVehicle>();
+            var mockMotorrVehicle = mockShippingVehicle.As<IMotorVehicle>();
+            //Act
+            mockShippingVehicle.Setup(sv => sv.MaxDistancePerRefuel).Equals(200);
+            mockShippingVehicle.Setup(sv => sv.MaxWeight).Equals(1000);
+            mockShippingVehicle.Setup(sv => sv.TopSpeed).Equals(65);
 
             mockDeliveryService.Setup(s => s.CostPerRefuel).Equals(1);
-            mockDeliveryService.Setup(s => s.ShippingVehicle).Equals(new Truck());
+            mockDeliveryService.Setup(s => s.ShippingVehicle).Equals(mockShippingVehicle.Object);
 
             mockShippingLocation.Setup(sl => sl.StartZipCode).Equals("101011");
             mockShippingLocation.Setup(sl => sl.DestinationZipCode).Equals("7088");
@@ -87,16 +94,18 @@ namespace UnitTestFinal
             mockProduct.Setup(p => p.ShippingWeight).Equals(42);
             mockProduct.Setup(p => p.ShortDescription).Equals("Why you poking me again?");
 
-            List<IProduct> products = new List<IProduct>();
-            products.Add(mockProduct.Object);
+            mockListProduct.Object.Add(mockProduct.Object);
 
-            DefaultShippingService swallow = new DefaultShippingService(mockDeliveryService.Object, products, mockShippingLocation.Object);
-            
+            defaultMock = new EuropeanSwallowFakeShippingService(mockDeliveryService.Object, mockListProduct.Object, mockShippingLocation.Object);
 
+            //double cost;
+            //cost = defaultMock.ShippingCost();
 
             ////Assert
-            Assert.IsInstanceOfType(swallow.DeliveryService, typeof(IDeliveryService));
-            Assert.IsInstanceOfType(swallow.ShippingLocation, typeof(IShippingLocation));
+            Assert.IsInstanceOfType(defaultMock.DeliveryService, typeof(IDeliveryService));
+            Assert.IsInstanceOfType(defaultMock.ShippingLocation, typeof(IShippingLocation));
+            Assert.IsInstanceOfType(defaultMock.Products, typeof(List<IProduct>));
+           
         }
        
     }

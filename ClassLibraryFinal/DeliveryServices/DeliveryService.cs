@@ -8,6 +8,8 @@ namespace ClassLibraryFinal
     public abstract class DeliveryService : IDeliveryService
     {
 
+        //protected double costPerRefuel;
+
         protected double costPerRefuel;
 
         public double CostPerRefuel
@@ -18,11 +20,12 @@ namespace ClassLibraryFinal
         }
 
 
-        public IShippingVehicle ShippingVehicle {
+        public IShippingVehicle ShippingVehicle
+        {
 
             get { return this.shippingVehicle; }
 
-            set { this.shippingVehicle = value; }          
+            set { this.shippingVehicle = value; }
         }
 
 
