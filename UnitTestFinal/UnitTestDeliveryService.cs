@@ -1,7 +1,5 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ClassLibraryFinal;
-using ClassLibraryFinal.ShippingServices;
 using Moq;
 using System.Collections.Generic;
 
@@ -70,7 +68,7 @@ namespace UnitTestFinal
         public void TestMock()
         {
             //Assign
-            EuropeanSwallowFakeShippingService defaultMock;
+            DefaultShippingService defaultMock;
 
             var mockDeliveryService = new Mock<IDeliveryService>();
             var mockProduct = new Mock<IProduct>();
@@ -78,7 +76,7 @@ namespace UnitTestFinal
             var mockShippingLocation = new Mock<IShippingLocation>();
 
             var mockShippingVehicle = new Mock<IShippingVehicle>();
-            var mockMotorrVehicle = mockShippingVehicle.As<IMotorVehicle>();
+            var mockMotorrVehicle = mockShippingVehicle.As<IShippingService>();
             //Act
             mockShippingVehicle.Setup(sv => sv.MaxDistancePerRefuel).Equals(200);
             mockShippingVehicle.Setup(sv => sv.MaxWeight).Equals(1000);
@@ -96,10 +94,11 @@ namespace UnitTestFinal
 
             mockListProduct.Object.Add(mockProduct.Object);
 
-            defaultMock = new EuropeanSwallowFakeShippingService(mockDeliveryService.Object, mockListProduct.Object, mockShippingLocation.Object);
+            defaultMock = new DefaultShippingService(mockDeliveryService.Object, mockListProduct.Object, mockShippingLocation.Object);
 
-            //double cost;
-            //cost = defaultMock.ShippingCost();
+            var mockShipService = new Mock<IShippingService>();
+            double cost;
+            cost = defaultMock.ShippingCost(mockShipService.Object);
 
             ////Assert
             Assert.IsInstanceOfType(defaultMock.DeliveryService, typeof(IDeliveryService));

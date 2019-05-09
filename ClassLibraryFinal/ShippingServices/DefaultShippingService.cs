@@ -53,9 +53,11 @@ namespace ClassLibraryFinal
             this.ShippingLocation.DestinationZipCode = 60805;
         }
 
-        public double ShippingCost()
-        {            
-            return (NumRefuels * this.DeliveryService.CostPerRefuel);
+        public double ShippingCost(IShippingService shipService)
+        {
+            double shipCost = 0;
+            shipCost = Math.Round(shipService.NumRefuels * this.DeliveryService.CostPerRefuel, 2);
+            return shipCost;
         }
     }
 }

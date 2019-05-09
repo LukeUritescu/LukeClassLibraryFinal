@@ -58,11 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeliveryServices\AirExpress.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShippingServices\DefaultShippingService.cs" />
     <Compile Include="DeliveryServices\DeliveryService.cs" />
     <Compile Include="DeliveryServices\IDeliveryService.cs" />
     <Compile Include="Products\IProduct.cs" />
-    <Compile Include="ShippingServices\EuropeanSwallowFakeShippingService.cs" />
     <Compile Include="ShippingServices\IShippingLocation.cs" />
     <Compile Include="ShippingServices\IShippingService.cs" />
     <Compile Include="Vehicles\IMotorVehicle.cs" />
@@ -70,7 +70,6 @@
     <Compile Include="Vehicles\MotorVehicle.cs" />
     <Compile Include="NinjectModules\ShippingServiceModule.cs" />
     <Compile Include="Vehicles\Plane.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShippingServices\ShippingServiceProvider.cs" />
     <Compile Include="DeliveryServices\ShippingSnail.cs" />
     <Compile Include="Vehicles\Snail.cs" />
